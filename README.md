@@ -1,4 +1,4 @@
-#Crafted Climate Infographic
+# Crafted Climate Infographic
 
 ## Steps To Run
 
