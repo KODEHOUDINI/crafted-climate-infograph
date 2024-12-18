@@ -12,7 +12,7 @@ export function MeterHead(props) {
   const groupRef = useRef();
   const meterHeadRef = useRef();
 
-  const { rotZ, apiVal } = useControls({
+  const { apiVal } = useControls({
     apiVal: { value: 1, min: 1, max: 500, step: 1 },
   });
 
@@ -25,34 +25,19 @@ export function MeterHead(props) {
     maroon: -3.14,
   };
 
-  // Define the color change points in radians
-  const colorPoints = [
-    { color: "green", value: colorchanges.green },
-    { color: "yellow", value: colorchanges.yellow },
-    { color: "orange", value: colorchanges.orange },
-    { color: "red", value: colorchanges.red },
-    { color: "purple", value: colorchanges.purple },
-    { color: "maroon", value: colorchanges.maroon },
-  ];
-
   // Function to map the API value to a rotation value (radians)
   const mapValueToRotation = (apiValue) => {
     const maxApiValue = 500;
-
-    // The full rotation range spans from 0 to 3.14 radians (as per your color changes)
-    const totalRadianRange = 3.14; // FIX: Define the full range of radians
-
-    // Calculate the scaled rotation value for the API value
-    const scaledRadian = (apiValue / maxApiValue) * totalRadianRange; // FIX: Scale to 0 to 3.14 radians
-
-    return -scaledRadian; // FIX: Returns rotation in radians from 0 to 3.14
+    const totalRadianRange = 3.14;
+    const scaledRadian = (apiValue / maxApiValue) * totalRadianRange;
+    return -scaledRadian;
   };
 
   const rotationValue = mapValueToRotation(apiVal);
 
   const getColorForRotation = (rotZ) => {
     if (rotZ >= colorchanges.green) return "green";
-    if (rotZ >= colorchanges.yellow) return "yellow";
+    if (rotZ >= colorchanges.yellow) return "gold";
     if (rotZ >= colorchanges.orange) return "orange";
     if (rotZ >= colorchanges.red) return "red";
     if (rotZ >= colorchanges.purple) return "purple";
@@ -66,6 +51,7 @@ export function MeterHead(props) {
 
     const color = getColorForRotation(rotationValue);
     craftedClimateState.climateColor = color;
+    craftedClimateState.apiNum = apiVal;
 
     easing.dampC(meterHeadRef.current.material.color, color, 0.25, delta);
 

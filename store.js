@@ -1,6 +1,6 @@
 import { proxy, subscribe } from "valtio";
 
-const VERSION = "1.0"; // Increment this version number whenever significant changes are made
+const VERSION = "1.1"; // Increment this version number whenever significant changes are made
 
 const storedStateString = window.localStorage.getItem("infoStore");
 let initialState;
@@ -18,6 +18,7 @@ if (storedStateString) {
       version: VERSION,
       climateColor: "green",
       description: "",
+      apiNum: 1,
     };
   }
 } else {
@@ -26,6 +27,7 @@ if (storedStateString) {
     version: VERSION,
     climateColor: "green",
     description: "",
+    apiNum: 1,
   };
 }
 

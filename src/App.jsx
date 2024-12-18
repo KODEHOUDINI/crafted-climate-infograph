@@ -17,11 +17,11 @@ function App() {
     } else if (snap.climateColor === "red") {
       craftedClimateState.description = "Everyone may begin to experience health effects.";
     } else if (snap.climateColor === "purple") {
-      craftedClimateState.description = "Everyone may experience more serious health effects..";
+      craftedClimateState.description = "Everyone may experience more serious health effects.";
     } else if (snap.climateColor === "maroon") {
       craftedClimateState.description = "Health warnings of emergency conditions.";
     } else {
-      snap.decription = "";
+      craftedClimateState.description = "";
     }
   }, [snap.climateColor]);
 
@@ -54,8 +54,8 @@ function App() {
         <Experience />
 
         {/* R3 */}
-        <div className="text-center text-xl mb-3">
-          <div>Meter Value From API</div>
+        <div className="text-2xl text-center">{snap.apiNum}</div>
+        <div className="text-center text-lg mb-5 p-2">
           <div>
             <h1>Health Alert:</h1>
             <p>{snap.description}</p>
