@@ -1,20 +1,18 @@
-import { OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { useSnapshot } from "valtio";
 import { craftedClimateState } from "../../store";
+import { MeterHead } from "./MeterHead";
 
 const Experience = () => {
   const snap = useSnapshot(craftedClimateState);
   return (
     <div className="flex-1">
-      <Canvas>
+      <Canvas camera={{ fov: 40 }}>
         <color attach="background" args={[snap.climateColor]} />
-        <mesh>
-          <boxGeometry />
-          <meshNormalMaterial />
-        </mesh>
-        <OrbitControls />
+        <MeterHead />
+        <Environment preset="city" environmentIntensity={2} />
       </Canvas>
     </div>
   );

@@ -5,11 +5,14 @@ import { craftedClimateState } from "../store";
 function App() {
   const snap = useSnapshot(craftedClimateState);
   const changeColor = () => {
-    craftedClimateState.climateColor = "#e91313";
+    craftedClimateState.climateColor = "#0bb722";
   };
   return (
     <>
-      <div className={`w-auto flex flex-col h-screen bg-[#ff00ff]`}>
+      <div
+        className={`w-auto flex flex-col h-screen`}
+        style={{ backgroundColor: snap.climateColor }}
+      >
         {/* Title, Location, Calender */}
         <div className="flex flex-col items-center text-center ">
           <div className="w-[50%] bg-[#08f954] text-white" onClick={changeColor}>
