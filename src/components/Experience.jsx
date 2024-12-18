@@ -10,7 +10,7 @@ const Experience = () => {
   return (
     <div className="flex-1">
       <Canvas camera={{ fov: 40 }}>
-        <color attach="background" args={[snap.climateColor]} />
+        <color attach="background" args={["#ffffff"]} />
         <MeterHead />
         <Environment preset="city" environmentIntensity={2} />
       </Canvas>

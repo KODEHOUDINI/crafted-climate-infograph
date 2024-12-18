@@ -16,14 +16,16 @@ if (storedStateString) {
     localStorage.removeItem("infoStore");
     initialState = {
       version: VERSION,
-      climateColor: "#ffff00",
+      climateColor: "green",
+      description: "",
     };
   }
 } else {
   // No existing state in localStorage, use default state
   initialState = {
     version: VERSION,
-    climateColor: "#ffff00",
+    climateColor: "green",
+    description: "",
   };
 }
 
